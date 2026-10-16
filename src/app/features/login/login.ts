@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ErrorMsg } from '../../shared/components/error-msg/error-msg';
 
 @Component({
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, ErrorMsg],
   selector: 'app-login',
   styleUrl: './login.scss',
   templateUrl: './login.html',

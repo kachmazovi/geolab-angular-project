@@ -2,15 +2,52 @@
   <form [formGroup]="userForm">
     <label for="username">Username: </label>
     <input type="text" id="username" formControlName="username" />
+    @if (usernameControl.touched) {
+      @if (usernameControl.hasError('required')) {
+        <app-error-msg [errorMsg]="'Username is required'" />
+      }
+      @if (usernameControl.hasError('minlength')) {
+        <app-error-msg [errorMsg]="'Minlength is 5'" />
+      }
+    }
     <label for="email">Email: </label>
     <input type="text" id="email" formControlName="email" />
+    @if (emailControl.touched) {
+      @if (emailControl.hasError('required')) {
+        <app-error-msg [errorMsg]="'Email is required'" />
+      }
+      @if (emailControl.hasError('email')) {
+        <app-error-msg [errorMsg]="'Wrong Format'" />
+      }
+      @if (emailControl.hasError('minlength')) {
+        <app-error-msg [errorMsg]="'Minlength is 10 symbol'" />
+      }
+    }
     <label for="mobile">Mobile: </label>
     <input type="text" id="mobile" formControlName="mobile" />
+    @if (mobileControl.touched) {
+      @if (mobileControl.hasError('required')) {
+        <app-error-msg [errorMsg]="'Mobile is required'" />
+      }
+    }
     <ng-container formGroupName="passwordGroup">
       <label for="password">Password: </label>
       <input type="password" id="password" formControlName="password" />
+      @if (passwordControl.touched) {
+        @if (passwordControl.hasError('required')) {
+          <app-error-msg [errorMsg]="'Password is required'" />
+        }
+        @if (passwordControl.hasError('pattern')) {
+          <app-error-msg [errorMsg]="'Password must be min 8 symbol, min 1 big letter ...'" />
+        }
+      }
       <label for="confrimPassword">Confirm password: </label>
       <input type="password" id="confrimPassword" formControlName="confirmPassword" />
+      @if (passwordControl.touched && confirmPasswordControl.touched) {
+        @if (userForm.get('passwordGroup')?.hasError('mismatch')) {
+          <app-error-msg [errorMsg]="'Passwords mismatch'" />
+        }
+      }
     </ng-container>
     <div>
       <label for="confirm">Confirm</label>
@@ -18,6 +55,6 @@
     </div>
   </form>
 
-  <button>Register</button>
+  <button [disabled]="userForm.invalid">Register</button>
   <button routerLink="/login">Login</button>
 </div>

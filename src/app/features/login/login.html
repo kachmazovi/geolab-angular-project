@@ -2,10 +2,29 @@
   <form [formGroup]="userForm">
     <label for="email">Email: </label>
     <input type="text" id="email" formControlName="email" />
+    @if (emailControl.touched) {
+      @if (emailControl.hasError('required')) {
+        <app-error-msg [errorMsg]="'Email is required'" />
+      }
+      @if (emailControl.hasError('email')) {
+        <app-error-msg [errorMsg]="'Wrong Format'" />
+      }
+      @if (emailControl.hasError('minlength')) {
+        <app-error-msg [errorMsg]="'Minlength is 10 symbol'" />
+      }
+    }
     <label for="password">Password: </label>
     <input type="password" id="password" formControlName="password" />
+    @if (passwordControl.touched) {
+      @if (passwordControl.hasError('required')) {
+        <app-error-msg [errorMsg]="'Password is required'" />
+      }
+      @if (passwordControl.hasError('pattern')) {
+        <app-error-msg [errorMsg]="'Password must be min 8 symbol, min 1 big letter ...'" />
+      }
+    }
   </form>
 
-  <button>Login</button>
+  <button [disabled]="userForm.invalid">Login</button>
   <button routerLink="/register">Register</button>
 </div>

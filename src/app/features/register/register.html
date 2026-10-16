@@ -1,1 +1,23 @@
-<p>register works!</p>
+<div class="container">
+  <form [formGroup]="userForm">
+    <label for="username">Username: </label>
+    <input type="text" id="username" formControlName="username" />
+    <label for="email">Email: </label>
+    <input type="text" id="email" formControlName="email" />
+    <label for="mobile">Mobile: </label>
+    <input type="text" id="mobile" formControlName="mobile" />
+    <ng-container formGroupName="passwordGroup">
+      <label for="password">Password: </label>
+      <input type="password" id="password" formControlName="password" />
+      <label for="confrimPassword">Confirm password: </label>
+      <input type="password" id="confrimPassword" formControlName="confirmPassword" />
+    </ng-container>
+    <div>
+      <label for="confirm">Confirm</label>
+      <input type="checkbox" id="confirm" formControlName="confirm" />
+    </div>
+  </form>
+
+  <button>Register</button>
+  <button routerLink="/login">Login</button>
+</div>

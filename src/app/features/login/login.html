@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="container">
+  <form [formGroup]="userForm">
+    <label for="email">Email: </label>
+    <input type="text" id="email" formControlName="email" />
+    <label for="password">Password: </label>
+    <input type="password" id="password" formControlName="password" />
+  </form>
+
+  <button>Login</button>
+  <button routerLink="/register">Register</button>
+</div>

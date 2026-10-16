@@ -5,4 +5,14 @@ body {
   max-width: 1320px;
   margin: 0 auto;
   position: relative;
+
+  .container {
+    margin: 0 auto;
+  }
+
+  color: black;
+  input {
+    background-color: white;
+    color: black;
+  }
 }

@@ -30,6 +30,13 @@
     }
   </form>
 
-  <button [disabled]="userForm.invalid" type="submit" class="btn-solid theme-primary">Login</button>
+  <button
+    (click)="login()"
+    [disabled]="userForm.invalid"
+    type="submit"
+    class="btn-solid theme-primary"
+  >
+    Login
+  </button>
   <button routerLink="/register" type="submit" class="btn-solid theme-secondary">Register</button>
 </div>

@@ -1,13 +1,39 @@
 {
-  posts: [
-    { id: '1', title: 'a title', views: 100 },
-    { id: '2', title: 'another title', views: 200 },
+  users: [
+    {
+      id: '1',
+      username: 'jhondoe',
+      email: 'jhondoe@gmail',
+      mobile: '5554353453',
+      password: 'Abcd1234',
+    },
+    {
+      id: '2',
+      username: 'janedoe',
+      email: 'janedoe@gmail',
+      mobile: '5554353453',
+      password: 'asdas324ASD',
+    },
+    {
+      id: '3',
+      username: 'nickdoe',
+      email: 'nickdoe@gmail',
+      mobile: '5554353453',
+      password: 'asdas324ASD',
+    },
+    {
+      id: '4',
+      username: 'mickdoe',
+      email: 'mickdoe@gmail',
+      mobile: '5554353453',
+      password: 'asdas324ASD',
+    },
+    {
+      id: '5',
+      username: 'jonathandoe',
+      email: 'jonathandoe@gmail',
+      mobile: '5554353453',
+      password: 'asdas324ASD',
+    },
   ],
-  comments: [
-    { id: '1', text: 'a comment about post 1', postId: '1' },
-    { id: '2', text: 'another comment about post 1', postId: '1' },
-  ],
-  profile: {
-    name: 'typicode',
-  },
 }

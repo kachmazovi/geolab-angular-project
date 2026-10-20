@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ErrorMsg } from '../../shared/components/error-msg/error-msg';
+import { AuthService } from '../../core/services/auth-service';
 
 @Component({
   imports: [ReactiveFormsModule, RouterLink, ErrorMsg],
@@ -10,6 +11,8 @@ import { ErrorMsg } from '../../shared/components/error-msg/error-msg';
   templateUrl: './login.html',
 })
 export class Login {
+  private authServ = inject(AuthService);
+
   public userForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(10)]),
     password: new FormControl('', [
@@ -18,7 +21,13 @@ export class Login {
     ]),
   });
 
-  public login() {}
+  public login() {
+    const user = {
+      email: this.emailControl.value,
+      password: this.passwordControl.value,
+    };
+    this.authServ.login(user);
+  }
 
   public get emailControl(): FormControl {
     return this.userForm.get('email') as FormControl;

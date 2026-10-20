@@ -1,7 +1,9 @@
 <div class="container">
   <form [formGroup]="userForm">
-    <label for="email">Email: </label>
-    <input type="text" id="email" formControlName="email" />
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="text" class="form-control" id="email" formControlName="email" />
+    </div>
     @if (emailControl.touched) {
       @if (emailControl.hasError('required')) {
         <app-error-msg [errorMsg]="'Email is required'" />
@@ -13,8 +15,11 @@
         <app-error-msg [errorMsg]="'Minlength is 10 symbol'" />
       }
     }
-    <label for="password">Password: </label>
-    <input type="password" id="password" formControlName="password" />
+    <div class="mb-3">
+      <label for="password" class="form-label">Password: </label>
+      <input type="password" class="form-control" id="password" formControlName="password" />
+    </div>
+
     @if (passwordControl.touched) {
       @if (passwordControl.hasError('required')) {
         <app-error-msg [errorMsg]="'Password is required'" />
@@ -25,6 +30,6 @@
     }
   </form>
 
-  <button [disabled]="userForm.invalid">Login</button>
-  <button routerLink="/register">Register</button>
+  <button [disabled]="userForm.invalid" type="submit" class="btn-solid theme-primary">Login</button>
+  <button routerLink="/register" type="submit" class="btn-solid theme-secondary">Register</button>
 </div>

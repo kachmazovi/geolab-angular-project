@@ -1,7 +1,10 @@
 <div class="container">
   <form [formGroup]="userForm">
-    <label for="username">Username: </label>
-    <input type="text" id="username" formControlName="username" />
+    <div class="mb-3">
+      <label for="username" class="form-label">Username: </label>
+      <input type="text" class="form-control" id="username" formControlName="username" />
+    </div>
+
     @if (usernameControl.touched) {
       @if (usernameControl.hasError('required')) {
         <app-error-msg [errorMsg]="'Username is required'" />
@@ -10,8 +13,12 @@
         <app-error-msg [errorMsg]="'Minlength is 5'" />
       }
     }
-    <label for="email">Email: </label>
-    <input type="text" id="email" formControlName="email" />
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email: </label>
+      <input type="text" class="form-control" id="email" formControlName="email" />
+    </div>
+
     @if (emailControl.touched) {
       @if (emailControl.hasError('required')) {
         <app-error-msg [errorMsg]="'Email is required'" />
@@ -23,16 +30,23 @@
         <app-error-msg [errorMsg]="'Minlength is 10 symbol'" />
       }
     }
-    <label for="mobile">Mobile: </label>
-    <input type="text" id="mobile" formControlName="mobile" />
+
+    <div class="mb-3">
+      <label for="mobile" class="form-label">Mobile: </label>
+      <input type="text" class="form-control" id="mobile" formControlName="mobile" />
+    </div>
+
     @if (mobileControl.touched) {
       @if (mobileControl.hasError('required')) {
         <app-error-msg [errorMsg]="'Mobile is required'" />
       }
     }
     <ng-container formGroupName="passwordGroup">
-      <label for="password">Password: </label>
-      <input type="password" id="password" formControlName="password" />
+      <div class="mb-3">
+        <label for="password" class="form-label">Password: </label>
+        <input type="password" class="form-control" id="password" formControlName="password" />
+      </div>
+
       @if (passwordControl.touched) {
         @if (passwordControl.hasError('required')) {
           <app-error-msg [errorMsg]="'Password is required'" />
@@ -41,8 +55,16 @@
           <app-error-msg [errorMsg]="'Password must be min 8 symbol, min 1 big letter ...'" />
         }
       }
-      <label for="confrimPassword">Confirm password: </label>
-      <input type="password" id="confrimPassword" formControlName="confirmPassword" />
+
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm password: </label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+        />
+      </div>
       @if (passwordControl.touched && confirmPasswordControl.touched) {
         @if (userForm.get('passwordGroup')?.hasError('mismatch')) {
           <app-error-msg [errorMsg]="'Passwords mismatch'" />
@@ -51,10 +73,12 @@
     </ng-container>
     <div>
       <label for="confirm">Confirm</label>
-      <input type="checkbox" id="confirm" formControlName="confirm" />
+      <input type="checkbox" id="confirm" class="check" formControlName="confirm" />
     </div>
   </form>
 
-  <button [disabled]="userForm.invalid">Register</button>
-  <button routerLink="/login">Login</button>
+  <button [disabled]="userForm.invalid" type="submit" class="btn-solid theme-primary">
+    Register
+  </button>
+  <button routerLink="/login" type="submit" class="btn-solid theme-secondary">Login</button>
 </div>

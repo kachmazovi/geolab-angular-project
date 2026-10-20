@@ -35,5 +35,13 @@
       mobile: '5554353453',
       password: 'asdas324ASD',
     },
+    {
+      username: 'newuser',
+      email: 'newuser@gmail',
+      mobile: 'a324234123',
+      password: 'Abcd1234',
+      id: 'l09UQXW7SSM',
+    },
   ],
+  $schema: './node_modules/json-server/schema.json',
 }

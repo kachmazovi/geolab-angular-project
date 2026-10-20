@@ -10,19 +10,18 @@ export class AuthService {
   private router = inject(Router);
 
   public login(user: IUser) {
-    this.apiService
-      .login()
-      .pipe(
-        tap((usersInfo: IUserInfo[]) => {
-          const findedUser = usersInfo.find(
-            (userInfo) => userInfo.email === user.email && userInfo.password === user.password,
-          );
+    this.apiService.login().subscribe((usersInfo: IUserInfo[]) => {
+      const findedUser = usersInfo.find(
+        (userInfo) => userInfo.email === user.email && userInfo.password === user.password,
+      );
 
-          console.log(findedUser);
-        }),
-      )
-      .subscribe();
+      console.log(findedUser);
+    });
   }
 
-  public register() {}
+  public register(userInfo: IUserInfo) {
+    this.apiService.register(userInfo).subscribe(() => {
+      this.router.navigateByUrl('/login');
+    });
+  }
 }

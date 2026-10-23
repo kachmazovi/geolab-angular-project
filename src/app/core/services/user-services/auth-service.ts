@@ -1,4 +1,4 @@
-import { inject, Service } from '@angular/core';
+import { inject, Service, signal } from '@angular/core';
 import { ApiRequests } from './api-requests';
 import { IUser, IUserInfo } from '../../../shared/interfaces/users.interface';
 import { tap } from 'rxjs';
@@ -11,14 +11,30 @@ export class AuthService {
   private router = inject(Router);
   private errorServ = inject(ErrorService);
 
+  public userInfo = signal<IUserInfo | null>(null);
+
+  constructor() {
+    const findedUser: string | null = localStorage.getItem('user');
+
+    if (findedUser) {
+      this.userInfo.set(JSON.parse(findedUser));
+    } else {
+      this.userInfo.set(null);
+    }
+  }
+
   public login(user: IUser) {
     this.apiService.login().subscribe((usersInfo: IUserInfo[]) => {
       const findedUser = usersInfo.find(
         (userInfo) => userInfo.email === user.email && userInfo.password === user.password,
       );
 
-      console.log(findedUser);
-      if (!findedUser) {
+      if (findedUser) {
+        console.log(findedUser);
+        this.userInfo.set(findedUser);
+        localStorage.setItem('user', JSON.stringify(findedUser));
+        this.router.navigateByUrl('/dashboard/products/acer');
+      } else {
         this.errorServ.setErrMsg('Wrong email or password');
         this.errorServ.clearMsg();
       }

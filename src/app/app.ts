@@ -5,9 +5,10 @@ import { SpinnerService } from './core/services/spinner-service';
 import { AsyncPipe } from '@angular/common';
 import { ErrorMsg } from './shared/components/error-msg/error-msg';
 import { ErrorService } from './core/services/error-service';
+import { Header } from './shared/components/header/header';
 
 @Component({
-  imports: [RouterOutlet, Spinner, AsyncPipe, ErrorMsg],
+  imports: [RouterOutlet, Spinner, AsyncPipe, ErrorMsg, Header],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

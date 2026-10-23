@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ErrorMsg } from '../../shared/components/error-msg/error-msg';
-import { AuthService } from '../../core/services/auth-service';
+import { AuthService } from '../../core/services/user-services/auth-service';
 
 @Component({
   imports: [ReactiveFormsModule, RouterLink, ErrorMsg],

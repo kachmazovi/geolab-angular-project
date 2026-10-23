@@ -1,0 +1,5 @@
+<div class="container wrapper">
+  @for (product of productsServ.products(); track $index) {
+    <app-single-product [product]="product" />
+  }
+</div>

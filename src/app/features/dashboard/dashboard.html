@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="categories">
+    <ul class="nav nav-pills nav-pills-vertical">
+      @for (category of productsServ.categories(); track $index) {
+        <li class="nav-item">
+          <a routerLinkActive="active" [routerLink]="['products', category.id]" class="nav-link">
+            {{ category.model }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="products-wrapper">
+    <router-outlet />
+  </div>
+</div>

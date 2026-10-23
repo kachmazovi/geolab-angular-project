@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  .categories {
+    width: 15%;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      a {
+        padding: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .products-wrapper {
+    width: 80%;
+    border: 1px solid black;
+  }
+}

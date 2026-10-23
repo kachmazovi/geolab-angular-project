@@ -4,7 +4,7 @@ import { matchValidator } from './validator';
 import { RouterLink } from '@angular/router';
 import { ErrorMsg } from '../../shared/components/error-msg/error-msg';
 import { IUserInfo } from '../../shared/interfaces/users.interface';
-import { AuthService } from '../../core/services/auth-service';
+import { AuthService } from '../../core/services/user-services/auth-service';
 
 @Component({
   imports: [ReactiveFormsModule, RouterLink, ErrorMsg],

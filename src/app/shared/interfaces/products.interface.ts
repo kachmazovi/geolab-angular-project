@@ -9,3 +9,14 @@ export interface IProduct {
   price: string;
   imgUrl: string;
 }
+
+export interface IProductDescription extends IProduct {
+  comments: IComment[];
+  description: {};
+}
+
+export interface IComment {
+  author: string;
+  date: string;
+  comment: string;
+}

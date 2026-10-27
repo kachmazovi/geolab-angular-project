@@ -1,4 +1,8 @@
-<section class="card" style="max-width: 320px">
+<section
+  [routerLink]="['/product-description', productServ.activatedCategory(), product().id]"
+  class="card"
+  style="max-width: 320px; cursor: pointer"
+>
   <img src="laptop.png" class="card-img-top" alt="..." />
   <div class="card-body">
     <h4 class="card-title">{{ product().name }}</h4>

@@ -18,7 +18,8 @@ export class Products implements OnInit {
     this.activatedRoute.params
       .pipe(
         switchMap((params) => {
-          return this.productsServ.getProducts(params['id']);
+          this.productsServ.activatedCategory.set(params['category']);
+          return this.productsServ.getProducts(params['category']);
         }),
       )
       .subscribe();

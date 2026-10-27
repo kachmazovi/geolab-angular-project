@@ -6,6 +6,7 @@ import { Products } from './shared/components/products/products';
 import { ContactUs } from './features/contact-us/contact-us';
 import { ProfileInfo } from './features/profile-info/profile-info';
 import { isLoginGuard } from './core/guards/is-login-guard';
+import { SingleProductDescription } from './shared/components/single-product-description/single-product-description';
 
 export const routes: Routes = [
   {
@@ -26,7 +27,7 @@ export const routes: Routes = [
     component: Dashboard,
     children: [
       {
-        path: 'products/:id',
+        path: 'products/:category',
         component: Products,
       },
     ],
@@ -39,5 +40,9 @@ export const routes: Routes = [
     path: 'profile',
     component: ProfileInfo,
     canActivate: [isLoginGuard],
+  },
+  {
+    path: 'product-description/:category/:id',
+    component: SingleProductDescription,
   },
 ];

@@ -1,0 +1,15 @@
+<h1>{{ productDescription().name }}</h1>
+
+<p>{{ productDescription().price }}</p>
+<img [src]="productDescription().imgUrl" alt="laptop" />
+
+@for (comment of productDescription().comments; track $index) {
+  <h1>{{ comment.author }}</h1>
+  <p>{{ comment.comment }}</p>
+  <p>{{ comment.date }}</p>
+}
+
+<textarea [formControl]="comment" name="" id="" style="resize: none"></textarea>
+<button [disabled]="comment.invalid || !userServ.userInfo()?.username" (click)="addComment()">
+  Add comment
+</button>

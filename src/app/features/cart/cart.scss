@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  .products {
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    div {
+      position: relative;
+
+      i {
+        position: absolute;
+        right: 0;
+        top: 25px;
+        cursor: pointer;
+      }
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  .payment {
+    width: 30%;
+    border: 1px solid black;
+  }
+}

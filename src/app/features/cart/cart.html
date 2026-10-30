@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="products">
+    @for (item of cartsServ.addedLaptops(); track $index) {
+      <div>
+        <i (click)="deleteFromCart(item)" class="fa-solid fa-trash fa-2xl"></i>
+        <img src="laptop.png" alt="" />
+        <h1>{{ item.name }}</h1>
+        <p>{{ item.price }}</p>
+      </div>
+    } @empty {
+      <h1>There is not any prouct in Cart</h1>
+    }
+  </div>
+  @if (cartsServ.addedLaptops().length) {
+    <div class="payment">
+      <h1>Price: {{ price }}</h1>
+    </div>
+  }
+</div>

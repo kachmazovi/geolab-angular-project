@@ -7,6 +7,7 @@ import { ContactUs } from './features/contact-us/contact-us';
 import { ProfileInfo } from './features/profile-info/profile-info';
 import { isLoginGuard } from './core/guards/is-login-guard';
 import { SingleProductDescription } from './shared/components/single-product-description/single-product-description';
+import { Cart } from './features/cart/cart';
 
 export const routes: Routes = [
   {
@@ -44,5 +45,9 @@ export const routes: Routes = [
   {
     path: 'product-description/:category/:id',
     component: SingleProductDescription,
+  },
+  {
+    path: 'carts',
+    component: Cart,
   },
 ];
